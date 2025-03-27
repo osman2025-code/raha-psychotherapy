@@ -1,0 +1,338 @@
+
+@import url(https://fonts.googleapis.com/earlyaccess/amiri.css);
+  /* font-family: 'Amiri', serif; */
+
+
+h1,h2,h3{
+    color: blue;
+}
+body{
+     font-family: Arial, sans-serif;
+     background-color: #f4f4f4;
+     text-align: center;
+     margin: 0;
+     padding: 20px;
+}
+
+
+*{
+     font-family:'Amiri', serif;
+     margin: 0;
+     padding:0;
+     box-sizing: border-box;
+     scroll-behavior: smooth;
+     text-decoration: none;
+     border: none;
+     transition:all .5s ease;
+     text-transform: capitalize;
+
+     }
+
+html{
+     overflow-x: hidden;
+     scroll-behavior: smooth;
+}
+
+::selection{background-color:#0000ffd7;color:white}
+
+.btn{
+     display: inline-block;
+     margin-top:1rem ;
+     color: #0080f0;
+     padding: .8rem 2rem;
+     border: solid .2rem #0080f0;
+     cursor: pointer;
+     font-size: 1.5rem;
+     background-color: rgba(255, 105, 0,.2);
+
+}
+.btn:hover{
+     color: #fff;
+     background-color: #0080f0;
+}
+
+
+#menu-bar{
+     color: #fff;
+     border: .1rem solid #fff;
+     border-radius: .5rem;
+     font-size: 2rem;
+     padding: .5rem 1.2rem;
+     cursor: pointer;
+     display: none;
+}
+
+
+/*start of header*/
+
+header{
+     background-image:radial-gradient(circle 800px, white ,#0080f0 ); 
+     background-attachment: fixed;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     justify-content: center;
+     background-blend-mode:saturation;
+     border-bottom: 2px solid blue;
+     align-items: center;
+     height: 50vh;
+}
+
+
+
+/* start of nav*/
+.nav-bar{
+     background-color: #333; 
+     border: #ddf120 solid 1.5px;
+     z-index: 1000;
+     position: fixed;top: 0;right: 0;left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+
+#nav {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 90px;
+     
+}
+
+#nav-pages{
+     display: flex;
+     justify-content: center;
+     gap:30px;
+     list-style: none;
+
+}
+
+
+
+
+nav a{
+     color:white;
+}
+
+nav a:hover,.active{
+     background-color: azure;
+     padding: 7px;
+     color: blue;
+     border-radius: 10px;
+}     
+     
+
+
+
+#icon{
+     margin: 7px 5px;
+}
+#icons i{
+     font-size: 1.5rem;
+     color: white;
+     cursor: pointer;
+     margin-right: 2rem;
+
+}
+
+
+
+#icons i:hover{
+     color: #0080f0;
+}
+
+
+#links { 
+          display: flex;
+          justify-content:center;
+          align-items: center;
+     }  
+
+#links a{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin:10px 10px;
+     margin-top: 40px;
+     font-size: 2rem;
+     width: 3rem;
+    
+     }
+
+
+#links a:hover{transform: scale(1.2);}
+
+header q{
+     color: rgb(194, 23, 23);
+}
+
+
+header h1{
+     text-align: center;
+     font-size: 2rem;
+     background-color:rgba(0,0,0,0.1);
+     border-radius: 30px;
+     margin-top: 20px;
+}
+
+/* end of header */
+
+/* login */
+
+/* end of loin */
+
+
+
+
+
+
+.select{
+     display: none;
+}
+
+
+
+
+
+#form h2{
+     
+     margin: 20px;
+}
+
+
+#form h2 span{
+     background-color: #0080f0;
+     color: #fff;
+     padding: 0 10px;
+}
+
+
+#book_form{
+     width: 100%;
+     max-width: 800px;
+     background: white;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+     margin: auto;
+}
+
+#book_form iframe{
+            width: 100%;
+            min-height: 500px; /* تحديد ارتفاع كافٍ لعرض النموذج بالكامل */
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+footer{
+    text-align: center;
+    line-height: 35px;
+    background-image:linear-gradient(to right,rgba(255, 166, 0, 1),yellow);
+    text-transform: capitalize;    
+}
+
+
+
+
+/*
+.........................................................................................................................
+.....................................................................................................................................
+*/
+
+
+
+@media (max-width:500px){
+     body{
+          width: 100%;
+          overflow: auto;
+          margin: auto;
+         
+     }
+
+     * {
+          max-width: 500px;
+          margin: 0;
+          padding: 0;
+          font-size: .80rem;
+     }
+
+   * h1,h2,h3{
+     font-size: 1.2rem;
+}
+
+   
+     form{
+          direction: rtl;
+          align-items: center;
+     }
+
+
+     
+     
+     }
+     
+
+
+
+
+
+
+@media (max-width:1024px){
+
+     #menu-bar{
+          display: initial;
+     }
+
+       #nav{
+          gap: 30px;
+          
+     }
+
+     #nav-pages{
+          display: block;
+          position: absolute;top:100%;left: 0;right: 0;
+          background: #333;
+          border-top: .1rem solid rgba(255, 255, 255,.2);
+          padding: 1rem 1.5rem;
+          clip-path:polygon(0 0,100% 0,100% 0,0 0);
+          width: max-content;  
+     }
+
+     #nav-pages.active{
+          clip-path:polygon(0 0,100% 0,100% 100% ,0 100%); 
+
+
+     }
+
+     #nav-pages li a{
+          display: block;
+     }
+
+    
+
+
+
+
+
+
+  }            
+          
+    
+  
+
+  
+  @media (max-width: 768px) {
+     #book_form iframe {
+         height: 500px; /* زيادة الارتفاع على الشاشات الصغيرة */
+     }
+ }
