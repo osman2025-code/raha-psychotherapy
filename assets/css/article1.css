@@ -64,6 +64,9 @@ html{
 }
 
 
+#menu-bar p{
+    font-size: 1rem;
+}
 /*start of header*/
 
 header{

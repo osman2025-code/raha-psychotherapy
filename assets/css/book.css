@@ -63,6 +63,9 @@ html{
 }
 
 
+#menu-bar p{
+     font-size: 1rem;
+}
 /*start of header*/
 
 header{
@@ -170,11 +173,12 @@ header q{
 
 header h1{
      text-align: center;
-     font-size: 2rem;
+     font-size: 1.5rem;
      background-color:rgba(0,0,0,0.1);
      border-radius: 30px;
      margin-top: 20px;
 }
+
 
 /* end of header */
 
