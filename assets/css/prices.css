@@ -181,6 +181,17 @@ header h1{
 /* login */
 
 
+#prices h2{
+     
+     margin: 20px;
+}
+
+
+#prices h2 span{
+     background-color: #0080f0;
+     color: #fff;
+     padding: 0 10px;
+}
 
 
 

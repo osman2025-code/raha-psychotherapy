@@ -143,6 +143,7 @@ nav a:hover,.active{
      padding: 100px;
      background-blend-mode:saturation;
      border-bottom: 2px solid blue;
+     background-attachment: fixed;
 
 
 }
@@ -159,7 +160,7 @@ nav a:hover,.active{
      justify-content: center;
      justify-content: space-between;
      align-items: center;
-     font-size: 1.2rem;
+     font-size: 1.5rem;
 
 }
 
@@ -171,7 +172,7 @@ nav a:hover,.active{
 #psycho{
      color: black;
      text-shadow: 5px 4px 12px #fff;
-     font-size:1.1em;
+     font-size:1.8rem;
      white-space:pre;
      line-height: 40px;
      text-align: left;
@@ -222,7 +223,7 @@ nav a:hover,.active{
      display: flex;
      align-items: center;
      justify-content: center;
-     margin: 20px 20px;
+     margin: 10px 20px;
      font-size: 2.5rem;
      }
 
@@ -594,7 +595,7 @@ footer{
      }
 
    * h1,h2,h3{
-     font-size: 1.3rem;
+     font-size: 1.5rem;
 }
 
 
@@ -663,11 +664,12 @@ footer{
 
 
      *{
-          font-size: .85rem;
+          font-size: .9rem;
      }
 
      #menu-bar{
           display: initial;
+          font-size: 1.5rem;
      }
 
      #nav{
