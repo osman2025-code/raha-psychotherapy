@@ -74,7 +74,7 @@ header{
      background-blend-mode:saturation;
      border-bottom: 2px solid blue;
      align-items: center;
-     height: 50vh;
+     height: 45vh;
 }
 
 
@@ -154,8 +154,8 @@ nav a:hover,.active{
      justify-content: center;
      margin:10px 10px;
      margin-top: 40px;
-     font-size: 2rem;
-     width: 3rem;
+     font-size: 3rem;
+     width: 2.5rem;
     
      }
 
@@ -315,7 +315,7 @@ footer{
 @media (max-width:500px){
     body{
          width: 100%;
-         overflow: auto;
+         overflow-x: hidden;
          margin: auto;
         
     }
@@ -324,16 +324,12 @@ footer{
          max-width: 500px;
          margin: 0;
          padding: 0;
-         font-size: .80rem;
+         
     }
 
   * h1,h2,h3{
     font-size: 1.2rem;
 }
-
-  
-   
-
 
     
     
@@ -387,8 +383,6 @@ footer{
 
 
 
-
-
  }            
          
 
@@ -399,6 +393,11 @@ footer{
 
 
 @media (max-width: 768px) {
+    
+body{
+    overflow-x: hidden;
+}
+
     .sidebar {
         width: 120px; /* تقليل الحجم أكثر للهواتف */
         padding: 15px;
@@ -419,6 +418,12 @@ footer{
 }
 
 @media (max-width: 480px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    
     .sidebar {
         width: 100%; /* جعله بعرض الشاشة بالكامل على الهواتف الصغيرة */
         position: relative;
@@ -434,4 +439,8 @@ footer{
         border-right: 3px solid #0077b6;
         padding: 8px;
     }
+
+
+    
+
 }
