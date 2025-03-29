@@ -23,5 +23,34 @@ function showMenu(){
     amenu.classList.toggle("active")
 }
 
-//************************************************** */
+//********************صفحة الكتب****************************** */
 
+async function fetchBooks() {
+    try {
+        let response = await fetch('books.json'); // تحميل ملف JSON
+        let books = await response.json(); // تحويله إلى JSON
+
+        let bookList = document.getElementById('book-list');
+        bookList.innerHTML = '';
+
+        books.forEach(book => {
+            let bookItem = document.createElement('div');
+            bookItem.className = 'book';
+            bookItem.innerHTML = `
+                <img src="${book.image}" alt="غلاف ${book.title}">
+                <div class="book-info">
+                    <h3>${book.title}</h3>
+                    <p>✍️ المؤلف: ${book.author}</p>
+                    <p>${book.description}</p>
+                    <a href="${book.download_link}" target="_blank">📥 تحميل الكتاب</a>
+                </div>
+            `;
+            bookList.appendChild(bookItem);
+        });
+    } catch (error) {
+        console.error('❌ حدث خطأ أثناء تحميل الكتب:', error);
+        document.getElementById('book-list').innerHTML = '❌ فشل في تحميل قائمة الكتب.';
+    }
+}
+
+fetchBooks();
