@@ -208,7 +208,9 @@ header h1{
 }
 
 .blog-post img {
-    width: 100%;
+    width: 40%;
+    margin: auto;
+    background-blend-mode: screen;
     border-radius: 10px;
 }
 

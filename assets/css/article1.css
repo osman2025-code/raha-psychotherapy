@@ -209,12 +209,20 @@ header h1{
 }
 
 .blog-post img {
-    width: 100%;
+    width: 40%;
+    margin: auto;
+    background-blend-mode: screen;
     border-radius: 10px;
 }
 
 .blog-post h2 {
     color: #0077b6;
+}
+
+.blog-container a{
+    font-size: 1.4rem;
+
+   
 }
 
 .date {
@@ -291,6 +299,60 @@ header h1{
     font-size: 14px;
     color: #666;
 }
+
+
+
+ blockquote {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #333;
+    background: #e0f7fa;
+    border-right: 5px solid #0077b6;
+    padding: 15px;
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+}
+blockquote::before {
+    content: "“";
+    font-size: 2.5em;
+    color: #0077b6;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+}
+blockquote::after {
+    content: "”";
+    font-size: 2.5em;
+    color: #0077b6;
+    position: absolute;
+    left: 10px;
+    bottom: -10px;
+}
+cite {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* جعل الروابط متجاوبة */
 @media (max-width: 768px) {
