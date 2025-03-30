@@ -259,6 +259,9 @@ header q{
      direction: rtl;
      padding: 0;
      margin: 0;
+     display: flex;
+     justify-content: center;
+     
 
      /* font-weight: 700;
      font-size:1.1em ;
@@ -365,6 +368,8 @@ header q{
 
 #services{
      background-color: #f4f4f4;
+    
+     
      /* background-image:linear-gradient(to top ,#0080f0,#fff 75%);  */
 
 }
