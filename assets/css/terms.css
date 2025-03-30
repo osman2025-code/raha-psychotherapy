@@ -260,15 +260,13 @@ header h1{
 
 
 
-
-
 footer{
-    text-align: center;
-    line-height: 35px;
-    background-image:linear-gradient(to right,rgba(255, 166, 0, 1),yellow);
-    text-transform: capitalize;    
+     text-align: center;
+     line-height: 35px;
+     /* background-image:  linear-gradient(to right,rgba(255, 166, 0, 1),yellow); */
+     text-transform: capitalize; 
+     border-top: 2px turquoise solid;
 }
-
 
 
 

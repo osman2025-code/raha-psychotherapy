@@ -283,11 +283,7 @@ header q{
      padding: 20px;
      text-align: center;
  }
-/* 
-#about   h2, h3 {
-     color: #0056b3;
-     font-size: 1.2rem;
- } */
+
 
 #about .about-text {
      background: #ffffff;
@@ -368,7 +364,7 @@ header q{
 
 #services{
      background-color: #f4f4f4;
-    
+     border-top: solid 1px turquoise;
      
      /* background-image:linear-gradient(to top ,#0080f0,#fff 75%);  */
 
@@ -424,24 +420,6 @@ header q{
      margin-bottom: 10px;
  }
 
- .service-images {
-     display: flex;
-     justify-content: center;
-     gap: 15px;
-     margin-top: 20px;
- }
-
- .service-images img {
-     width: 15rem;
-     height: 200px;
-     border-radius: 10px;
-     transition: 0.3s;
- }
-
- .service-images img:hover {
-     transform: scale(1.05);
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
- }
 
 #raha-videos{
 
@@ -532,13 +510,12 @@ iframe {
 /*footer*/
 
 footer{
-     background-color: yellow;
      text-align: center;
      line-height: 35px;
-     background-image:  linear-gradient(to right,rgba(255, 166, 0, 1),yellow);
-     text-transform: capitalize;    
+     /* background-image:  linear-gradient(to right,rgba(255, 166, 0, 1),yellow); */
+     text-transform: capitalize; 
+     border-top: 2px turquoise solid;
 }
-
 
 
 

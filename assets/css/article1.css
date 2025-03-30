@@ -345,30 +345,6 @@ cite {
 
 
 
-
-
-
-
-
-
-
-
-
-/* جعل الروابط متجاوبة */
-@media (max-width: 768px) {
-    .articles-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .articles-container article {
-        width: 90%;
-    }
-}
-
-
-
-
-
 /* side bar .............................*/
 
 .sidebar {
@@ -430,14 +406,13 @@ cite {
 
 
 
-
 footer{
-     text-align: center;
-     line-height: 35px;
-     background-image:linear-gradient(to right,rgba(255, 166, 0, 1),yellow);
-     text-transform: capitalize;    
- }
- 
+    text-align: center;
+    line-height: 35px;
+    /* background-image:  linear-gradient(to right,rgba(255, 166, 0, 1),yellow); */
+    text-transform: capitalize; 
+    border-top: 2px turquoise solid;
+}
 
 
 
@@ -475,6 +450,20 @@ footer{
     
 
 
+
+
+
+
+/* جعل الروابط متجاوبة */
+@media (max-width: 768px) {
+    .articles-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .articles-container article {
+        width: 90%;
+    }
+}
 
 
 
