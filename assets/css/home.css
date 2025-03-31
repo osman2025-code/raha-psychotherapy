@@ -63,16 +63,11 @@ html{
 }
 /*start of header*/
 
-header{
-    
-     display: flex;
-     justify-content: space-between;
-     justify-content: center;
-}
 
 header img{transition: 3s;}
 header img:hover{transform: scale(1.2);}
-
+header q{
+     color: rgb(194, 23, 23);}
 
 
 /* ............................start of nav...................................*/
@@ -83,14 +78,12 @@ header img:hover{transform: scale(1.2);}
      position: fixed;top: 0;right: 0;left: 0;
      display: flex;
      align-items: center;
-     justify-content: space-between; 
-} 
-
+     justify-content: space-between;
+}
 
 
 #nav {
      display: flex;
-     flex-wrap: wrap; 
      align-items: center;
      gap: 90px;
      
@@ -103,6 +96,7 @@ header img:hover{transform: scale(1.2);}
      list-style: none;
 
 }
+
 
 
 
@@ -122,8 +116,8 @@ nav a:hover,.active{
 
 
 #icon{
-     margin: 7px 5px;
-}
+     margin-top: 10px;
+} 
 
 
 
@@ -131,10 +125,8 @@ nav a:hover,.active{
      font-size: 1.5rem;
      color: white;
      cursor: pointer;
-     margin-right: 2rem;
-   
 
-}
+} 
 
 
 #icons i:hover{
@@ -199,6 +191,10 @@ nav a:hover,.active{
 
 }
 
+#welcome img{
+     border-radius: 8px;
+}
+
 #welcome .btn { 
      border-radius: 15px;
      padding: .3rem;
@@ -236,8 +232,6 @@ nav a:hover,.active{
 
 #links a:hover{transform: scale(1.2);}
 
-header q{
-     color: rgb(194, 23, 23);}
 
 /* end of header */
 
