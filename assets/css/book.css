@@ -78,7 +78,7 @@ header{
      background-blend-mode:saturation;
      border-bottom: 2px solid blue;
      align-items: center;
-     height: 30vh;
+     height: 25vh;
 }
 
 
@@ -156,8 +156,9 @@ nav a:hover,.active{
      display: flex;
      align-items: center;
      justify-content: center;
-     margin:10px 10px;
-     margin-top: 40px;
+     margin: 0 10px;
+     margin-top: 3.5rem;
+     margin-bottom: 10px;
      font-size: 2.5rem;
      width: 3rem;
     
@@ -201,7 +202,7 @@ header h1{
 
 #form h2{
      
-     margin: 20px;
+     margin:  10px;
 }
 
 
@@ -231,6 +232,24 @@ header h1{
 }
 
 
+   
+.back-home {
+     display: block;
+     text-align: center;
+     margin-top: 20px;
+     padding: 10px;
+     background: #007bff;
+     color: white;
+     text-decoration: none;
+     border-radius: 5px;
+     width: 200px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .back-home:hover {
+     background: #0056b3;
+ }
 
 
 
