@@ -257,14 +257,6 @@ nav a:hover,.active{
      justify-content: center;
      
 
-     /* font-weight: 700;
-     font-size:1.1em ;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-items: center;
-     background-size: cover;
-     min-height: 100vh; */
 }
 
 
@@ -485,8 +477,8 @@ z-index: 0;
 #location img {
      border: 4px solid blue;
      border-radius: 15px;
-     width: 50%;
-     height: 40%;
+     width: 70%;
+     height: 50%;
      
 }
 
@@ -494,7 +486,7 @@ z-index: 0;
      color: red;
 }
 iframe {
-     width: 50%;
+     width: 70%;
      height: 50%;
 }
 
