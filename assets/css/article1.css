@@ -2,9 +2,6 @@
   /* font-family: 'Amiri', serif; */
 
 
-h1,h2,h3{
-    color: blue;
-}
 body{
      font-family: Arial, sans-serif;
      background-color: #f4f4f4;
@@ -199,23 +196,9 @@ header h1{
     margin: 20px auto;
 }
 
-/* تنسيق المقالات */
-.blog-post {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.blog-post img {
-    width: 40%;
-    margin: auto;
-    background-blend-mode: screen;
-    border-radius: 10px;
-}
 
-.blog-post h2 {
+h2 {
     color: #0077b6;
 }
 
@@ -834,15 +817,6 @@ h4 {
     font-weight: bold;
 }
 
-@media (max-width: 768px) {
-    .symptoms-section {
-        grid-template-columns: 1fr;
-    }
-    
-    .prevention-steps {
-        flex-direction: column;
-    }
-}
 /*...............................................................................................*/
 
 
@@ -876,6 +850,15 @@ h4 {
     
 
 
+    @media (max-width: 768px) {
+        .symptoms-section {
+            grid-template-columns: 1fr;
+        }
+        
+        .prevention-steps {
+            flex-direction: column;
+        }
+    }
 
 
 @media (max-width: 768px) {

@@ -202,51 +202,52 @@
             
             <div class="article-footer">
                 <a href="booking.html" class="cta-button">احجز جلسة استشارية الآن</a>
-                <div class="social-share">
-                    <span>شارك المقال: </span>
-                    <a href="#" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i></a>
-                    <a href="#" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a>
-                    <a href="#" onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                
-                <script>
-                // عنوان URL للمقال الحالي
-                const currentUrl = encodeURIComponent(window.location.href);
-                const articleTitle = encodeURIComponent(document.title);
-                
-                // مشاركة على فيسبوك
-                function shareOnFacebook() {
-                    // محاولة فتح تطبيق فيسبوك
-                    window.location.href = `fb://facewebmodal/f?href=https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-                    
-                    // إذا لم يفتح التطبيق، يتم التوجيه للويب بعد تأخير
-                    setTimeout(function() {
-                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
-                    }, 500);
-                }
-                
-                // مشاركة على تويتر
-                function shareOnTwitter() {
-                    // محاولة فتح تطبيق تويتر
-                    window.location.href = `twitter://post?message=${articleTitle} ${currentUrl}`;
-                    
-                    // إذا لم يفتح التطبيق، يتم التوجيه للويب بعد تأخير
-                    setTimeout(function() {
-                        window.open(`https://twitter.com/intent/tweet?text=${articleTitle}&url=${currentUrl}`, '_blank');
-                    }, 500);
-                }
-                
-                // مشاركة على واتساب
-                function shareOnWhatsApp() {
-                    // محاولة فتح تطبيق واتساب
-                    window.location.href = `whatsapp://send?text=${articleTitle} ${currentUrl}`;
-                    
-                    // إذا لم يفتح التطبيق، يتم التوجيه للويب بعد تأخير
-                    setTimeout(function() {
-                        window.open(`https://web.whatsapp.com/send?text=${articleTitle} ${currentUrl}`, '_blank');
-                    }, 500);
-                }
-                </script>
+
+    <div class="social-share">
+    <span>شارك المقال: </span>
+    <div class="video-actions">
+        <button class="share-btn" onclick="shareVideo('https://raha-center.com/article6', 'كيف تبني علاقات صحية مع الآخرين؟')">
+          <i class="fas fa-share-alt"></i> مشاركة
+        </button>
+        <script>
+            function shareVideo(url, title) {
+              if (navigator.share) {
+                navigator.share({
+                  title: title,
+                  url: url
+                }).catch(console.error);
+              } else {
+                // Fallback للشاشات الكبيرة
+                const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+              }
+            }
+          </script>
+          
+          <style>
+            .video-actions {
+              display: flex;
+              justify-content: center;
+              padding: 10px;
+              background: #f5f5f5;
+            }
+            
+            .share-btn {
+              background: #0056b3;
+              color: white;
+              border: none;
+              padding: 8px 15px;
+              border-radius: 4px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              justify-content: center;
+            }
+          </style>
+        
+
+        </div>
         
             <a href="articles.html" class="back-button">⬅️ عودة للمدونة</a>
 
