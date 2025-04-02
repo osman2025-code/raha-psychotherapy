@@ -62,6 +62,7 @@
                           <li><a href="books.html">books</a> </li>
                           <li><a href="articles.html" class="active" >Articles in mental health</a> </li>
                           <li><a href="courses.html" >Cousrses</a>  </li>
+                          <li><a href="videos.html" >videos</a>  </li>
                           <li> <a href="#contact" >Contact us</a> </li>
       
                       </ul>
@@ -191,6 +192,481 @@
 
 
     </div>
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            color: #0056b3;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-transform: lowercase;
+        }
+        input:first-letter {
+            text-transform: lowercase !important;
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+            text-transform: none;
+        }
+        button:hover {
+            background-color: #003d82;
+        }
+        #comments-list {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: right;
+        }
+        .comment-box {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .comment-header {
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .comment-text {
+            margin: 10px 0;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .reply-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .reply-btn:hover {
+            background-color: #218838;
+        }
+        .reply-form {
+            margin-top: 15px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .reply-input {
+            width: 100%;
+            margin-bottom: 10px;
+            text-transform: lowercase;
+        }
+        .reply-input:first-letter {
+            text-transform: lowercase !important;
+        }
+        .replies-container {
+            margin-top: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #eee;
+        }
+        .reply-box {
+            background: #f8f9fa;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: 1px solid #eaeaea;
+        }
+        .reply-box .comment-header {
+            color: #28a745;
+            font-size: 15px;
+        }
+        .reply-text {
+            color: #555;
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+        .timestamp {
+            color: #999;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+        .error-msg {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .loading {
+            text-align: center;
+            padding: 15px;
+            color: #666;
+        }
+        .invalid-email {
+            border-color: #dc3545 !important;
+        }
+        .email-error {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            display: none;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h2>التعليقات</h2>
+
+    <form id="comment-form">
+        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required autocomplete="email">
+        <div class="email-error" id="email-error">البريد الإلكتروني غير صحيح</div>
+        <textarea id="comment" placeholder="اكتب تعليقك هنا" required rows="4"></textarea>
+        <button type="submit">إرسال التعليق</button>
+    </form>
+
+    <div id="comments-list">
+        <p class="loading">جاري تحميل التعليقات...</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            serverTimestamp, 
+            query, 
+            orderBy, 
+            onSnapshot,
+            where,
+            getDocs
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // تكوين Firebase
+        const firebaseConfig = {
+  apiKey: "AIzaSyBdj4CmSCRfcueEBp3SPXSUhpFElCTOIwQ",
+  authDomain: "raha-comments.firebaseapp.com",
+  projectId: "raha-comments",
+  storageBucket: "raha-comments.firebasestorage.app",
+  messagingSenderId: "858432621804",
+  appId: "1:858432621804:web:e05a835f9702172a8f69c9",
+  measurementId: "G-2CQFCJ8MKV"
+};
+
+        // تهيئة Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // دالة التحقق من صحة البريد الإلكتروني
+        function isValidEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // إعداد تحقق البريد الإلكتروني
+        function setupEmailValidation() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+
+            // حل مشكلة الأحرف الكبيرة
+            emailInput.addEventListener('input', function() {
+                this.value = this.value.toLowerCase();
+                const email = this.value.trim();
+                if (email && !isValidEmail(email)) {
+                    this.classList.add('invalid-email');
+                    emailError.style.display = 'block';
+                } else {
+                    this.classList.remove('invalid-email');
+                    emailError.style.display = 'none';
+                }
+            });
+
+            // إعداد التحقق لأي حقول بريد إلكتروني جديدة تضاف ديناميكياً
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('reply-btn')) {
+                    const commentId = e.target.closest('.comment-box').dataset.id;
+                    const replyForm = document.getElementById(`reply-form-${commentId}`);
+                    if (replyForm) {
+                        const replyEmailInput = replyForm.querySelector('input[type="email"]');
+                        const replyEmailError = document.createElement('div');
+                        replyEmailError.className = 'email-error';
+                        replyEmailError.textContent = 'البريد الإلكتروني غير صحيح';
+                        replyForm.insertBefore(replyEmailError, replyEmailInput.nextSibling);
+
+                        replyEmailInput.addEventListener('input', function() {
+                            this.value = this.value.toLowerCase();
+                            const email = this.value.trim();
+                            if (email && !isValidEmail(email)) {
+                                this.classList.add('invalid-email');
+                                replyEmailError.style.display = 'block';
+                            } else {
+                                this.classList.remove('invalid-email');
+                                replyEmailError.style.display = 'none';
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // إرسال تعليق جديد
+        document.getElementById("comment-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value.trim().toLowerCase();
+            const comment = document.getElementById("comment").value.trim();
+            const submitBtn = e.target.querySelector("button[type='submit']");
+
+            if (!email || !comment) {
+                alert("الرجاء إدخال البريد الإلكتروني وكتابة التعليق");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert("الرجاء إدخال بريد إلكتروني صحيح");
+                document.getElementById("email").focus();
+                return;
+            }
+
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "جاري الإرسال...";
+                
+                await addDoc(collection(db, "comments"), {
+                    email,
+                    comment,
+                    timestamp: serverTimestamp()
+                });
+                document.getElementById("comment-form").reset();
+            } catch (error) {
+                console.error("Error adding comment: ", error);
+                alert("حدث خطأ أثناء إرسال التعليق، يرجى المحاولة مرة أخرى");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "إرسال التعليق";
+            }
+        });
+
+        // تحميل التعليقات والردود
+        function loadComments() {
+            const commentsList = document.getElementById("comments-list");
+            const q = query(collection(db, "comments4"), orderBy("timestamp", "desc"));
+
+            const unsubscribe = onSnapshot(q, async (snapshot) => {
+                if (snapshot.empty) {
+                    commentsList.innerHTML = "<p>لا توجد تعليقات بعد. كن أول من يعلق!</p>";
+                    return;
+                }
+
+                commentsList.innerHTML = "";
+                
+                const commentPromises = snapshot.docs.map(async (doc) => {
+                    const data = doc.data();
+                    const commentDate = data.timestamp?.toDate() || new Date();
+                    
+                    // إنشاء عنصر التعليق
+                    const commentElement = document.createElement("div");
+                    commentElement.className = "comment-box";
+                    commentElement.dataset.id = doc.id;
+                    commentElement.innerHTML = `
+                        <div class="comment-header">${data.email}</div>
+                        <div class="timestamp">${formatDate(commentDate)}</div>
+                        <div class="comment-text">${data.comment}</div>
+                        <button class="reply-btn">رد على التعليق</button>
+                        <div class="reply-form" id="reply-form-${doc.id}">
+                            <input type="email" class="reply-input" placeholder="بريدك الإلكتروني" required autocomplete="email">
+                            <input type="text" class="reply-input" placeholder="اكتب ردك هنا" required>
+                            <button class="reply-btn" id="submit-reply-${doc.id}">إرسال الرد</button>
+                        </div>
+                        <div class="replies-container" id="replies-${doc.id}"></div>
+                    `;
+                    
+                    commentsList.appendChild(commentElement);
+                    
+                    // تحميل الردود لهذا التعليق
+                    await loadReplies(doc.id);
+                    
+                    // إعداد أزرار الرد
+                    setupReplyButtons(doc.id);
+                });
+
+                await Promise.all(commentPromises);
+            });
+
+            return unsubscribe;
+        }
+
+        // تحميل الردود لتعليق معين
+        async function loadReplies(commentId) {
+            const repliesContainer = document.getElementById(`replies-${commentId}`);
+            if (!repliesContainer) return;
+
+            try {
+                repliesContainer.innerHTML = "<p class='loading'>جاري تحميل الردود...</p>";
+                
+                const repliesQuery = query(
+                    collection(db, "replies"),
+                    where("commentId", "==", commentId),
+                    orderBy("timestamp", "asc")
+                );
+                
+                const repliesSnapshot = await getDocs(repliesQuery);
+                
+                if (repliesSnapshot.empty) {
+                    repliesContainer.innerHTML = "";
+                    return;
+                }
+                
+                repliesContainer.innerHTML = repliesSnapshot.docs.map(replyDoc => {
+                    const replyData = replyDoc.data();
+                    const replyDate = replyData.timestamp?.toDate() || new Date();
+                    return `
+                        <div class="reply-box">
+                            <div class="comment-header">${replyData.email || "مستخدم مجهول"}</div>
+                            <div class="timestamp">${formatDate(replyDate)}</div>
+                            <div class="reply-text">${replyData.reply}</div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (error) {
+                console.error("Error loading replies:", error);
+                repliesContainer.innerHTML = `
+                    <p class="error-msg">
+                        حدث خطأ في تحميل الردود: ${error.message}
+                    </p>
+                `;
+            }
+        }
+
+        // إعداد أزرار الرد
+        function setupReplyButtons(commentId) {
+            const replyBtn = document.querySelector(`.comment-box[data-id="${commentId}"] .reply-btn`);
+            const submitReplyBtn = document.getElementById(`submit-reply-${commentId}`);
+            
+            if (replyBtn && submitReplyBtn) {
+                replyBtn.addEventListener("click", () => {
+                    const replyForm = document.getElementById(`reply-form-${commentId}`);
+                    replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
+                    
+                    // نسخ البريد الإلكتروني من التعليق الرئيسي إذا كان موجوداً
+                    const mainEmail = document.getElementById('email').value;
+                    if (mainEmail) {
+                        const replyEmailInput = replyForm.querySelector('input[type="email"]');
+                        replyEmailInput.value = mainEmail;
+                    }
+                });
+                
+                submitReplyBtn.addEventListener("click", async () => {
+                    await submitReply(commentId);
+                });
+            }
+        }
+
+        // إرسال الرد
+        async function submitReply(commentId) {
+            const replyForm = document.getElementById(`reply-form-${commentId}`);
+            const emailInput = replyForm.querySelector('input[type="email"]');
+            const replyInput = replyForm.querySelector('input[type="text"]');
+            const submitBtn = document.getElementById(`submit-reply-${commentId}`);
+            
+            const email = emailInput.value.trim().toLowerCase();
+            const replyText = replyInput.value.trim();
+            
+            if (!email || !replyText) {
+                alert("الرجاء إدخال البريد الإلكتروني وكتابة الرد");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert("الرجاء إدخال بريد إلكتروني صحيح");
+                emailInput.focus();
+                return;
+            }
+
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "جاري الإرسال...";
+                
+                await addDoc(collection(db, "replies"), {
+                    commentId,
+                    reply: replyText,
+                    email: email,
+                    timestamp: serverTimestamp()
+                });
+                
+                emailInput.value = "";
+                replyInput.value = "";
+                replyForm.style.display = "none";
+                await loadReplies(commentId);
+            } catch (error) {
+                console.error("Error adding reply: ", error);
+                alert("حدث خطأ أثناء إرسال الرد، يرجى المحاولة مرة أخرى");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "إرسال الرد";
+            }
+        }
+
+        // تنسيق التاريخ
+        function formatDate(date) {
+            try {
+                return new Date(date).toLocaleString("ar-EG", {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                console.error("Error formatting date:", date, e);
+                return "تاريخ غير معروف";
+            }
+        }
+
+        // تحميل التعليقات عند بدء التشغيل
+        document.addEventListener("DOMContentLoaded", () => {
+            setupEmailValidation();
+            try {
+                const unsubscribe = loadComments();
+                
+                window.addEventListener("beforeunload", () => {
+                    if (unsubscribe && typeof unsubscribe === "function") {
+                        unsubscribe();
+                    }
+                });
+            } catch (error) {
+                console.error("Initialization error:", error);
+                document.getElementById("comments-list").innerHTML = 
+                    "<p class='error-msg'>حدث خطأ في تحميل النظام، يرجى تحديث الصفحة</p>";
+            }
+        });
+    </script>
  </main>
 
  <section class="related-articles">

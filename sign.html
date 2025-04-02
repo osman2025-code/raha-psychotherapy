@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+</head>
+<body>
+
+    <h2>تسجيل حساب</h2>
+    <input type="email" id="signup-email" placeholder="البريد الإلكتروني">
+    <input type="password" id="signup-password" placeholder="كلمة المرور">
+    <button onclick="signup()">إنشاء حساب</button>
+
+    <h2>تسجيل الدخول</h2>
+    <input type="email" id="login-email" placeholder="البريد الإلكتروني">
+    <input type="password" id="login-password" placeholder="كلمة المرور">
+    <button onclick="login()">دخول</button>
+
+    <h2>حالة المستخدم</h2>
+    <p id="user-status">لم تقم بتسجيل الدخول.</p>
+
+    <button onclick="logout()">تسجيل الخروج</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } 
+        from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        const firebaseConfig = {
+  apiKey: "AIzaSyBdj4CmSCRfcueEBp3SPXSUhpFElCTOIwQ",
+  authDomain: "raha-comments.firebaseapp.com",
+  projectId: "raha-comments",
+  storageBucket: "raha-comments.firebasestorage.app",
+  messagingSenderId: "858432621804",
+  appId: "1:858432621804:web:8169181aef758f888f69c9",
+  measurementId: "G-5V227R3GJK"
+};
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        window.signup = async function() {
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+                alert("تم إنشاء الحساب بنجاح 🎉");
+            } catch (error) {
+                alert("خطأ: " + error.message);
+            }
+        };
+    
+        window.login = async function() {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                alert("تم تسجيل الدخول بنجاح ✅");
+            } catch (error) {
+                alert("خطأ: " + error.message);
+            }
+        };
+    
+        window.logout = async function() {
+            await signOut(auth);
+            alert("تم تسجيل الخروج 👋");
+        };
+    
+        onAuthStateChanged(auth, (user) => {
+            const status = document.getElementById("user-status");
+            if (user) {
+                status.innerHTML = `مرحبا، ${user.email} 👋`;
+            } else {
+                status.innerHTML = "لم تقم بتسجيل الدخول.";
+            }
+        });
+    </script>
+    
+</body>
+</html>
