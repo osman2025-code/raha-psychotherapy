@@ -432,7 +432,7 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = "جاري الإرسال...";
                 
-                await addDoc(collection(db, "comments"), {
+                await addDoc(collection(db, "comments2"), {
                     email,
                     comment,
                     timestamp: serverTimestamp()
