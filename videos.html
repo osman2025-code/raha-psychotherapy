@@ -64,7 +64,20 @@
                 "uploadDate": "2023-02-15",
                 "duration": "PT5M45S",
                 "embedUrl": "https://www.youtube.com/embed/im6nRferHq8"
-            }
+            },
+            {
+                "@type": "VideoObject",
+                "name": "الفرق بين الطمأنينة والأمان",
+                "description": "نصائح سريعة للعناية بالصحة النفسية",
+                "thumbnailUrl": "https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view?usp=sharing",
+                "uploadDate": "2025-4-3",
+                "duration": "PT5M45S",
+                "embedUrl": "https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view"
+            },
+
+
+
+
         ]
     }
     </script>
@@ -236,7 +249,37 @@
                       
                   </div>
             </div>
-        
+           <!-- فيديو4 من جوجل درايف -->
+<div class="video-card" data-category="mental-health">
+    <h2>الفرق بين الطمأنينة والأمان</h2>
+    <div class="video-container">
+        <iframe 
+            src="https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/preview"
+            title="  الفرق بين الطمأنينة والأمان   "
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay">
+        </iframe>
+    </div>
+    <div class="video-actions">
+        <button class="share-btn" onclick="shareDriveVideo('https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view', ' الفرق بين الطمأنينة والأمان ')">
+            <i class="fas fa-share-alt"></i> مشاركة
+        </button>
+    </div>
+</div>
+
+<script>
+    function shareDriveVideo(url, title) {
+        if (navigator.share) {
+            navigator.share({
+                title: title,
+                url: url
+            }).catch(console.error);
+        } else {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+    }
+</script>
             <!-- فيديوهات قادمة -->
             <div class="video-card coming-soon" data-category="mental-health">
                 <h2>استراتيجيات تحسين الحالة المزاجية</h2>

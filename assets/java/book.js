@@ -57,7 +57,7 @@ fetchBooks();
 
 
 
-
+//الاعلان الجانبي في صفحة الحجز
 
  // تبديل حالة القسم
  function togglePanel(panelId) {
