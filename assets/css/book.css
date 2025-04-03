@@ -264,6 +264,21 @@ footer{
 
 
 
+
+      
+.side-resourses {
+     background-color:rgba(0, 0, 0, 0.2) ;
+     border: 1x solid;
+     border-radius: 10px;
+}  
+
+.side-resourses a{
+     color:black;
+}
+
+.side-resourses  h3{
+     border-bottom: solid 2px gray;
+}
 /*
 .........................................................................................................................
 .....................................................................................................................................
@@ -296,6 +311,7 @@ footer{
      }
 
 
+  
      
      
      }
@@ -337,10 +353,26 @@ footer{
           display: block;
      }
 
+
+
+           
+.side-links p {
+      width: 140px;
+      height: 60px;
+      scale: .7;
+      position: fixed;right: 0;bottom: 120px;
+     
+ 
+ }    
+.side-links a button  {
+     scale:.8 ;
+     width: 100px;
+     height: 50px;
+ 
+ }
+
+
     
-
-
-
 
 
 
