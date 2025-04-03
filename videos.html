@@ -74,6 +74,15 @@
                 "duration": "PT5M45S",
                 "embedUrl": "https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view"
             },
+            {
+                "@type": "VideoObject",
+                "name": "التشتت وسرعة الملل",
+                "description": "نصائح سريعة للعناية بالصحة النفسية",
+                "thumbnailUrl": "    https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view?usp=sharing  ",
+                "uploadDate": "2025-4-3",
+                "duration": "PT5M45S",
+                "embedUrl": " https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view"
+            },
 
 
 
@@ -81,7 +90,6 @@
         ]
     }
     </script>
-
     <!-- سياسة أمان المحتوى -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*; child-src https://www.youtube.com"></head> -->
 
@@ -249,6 +257,9 @@
                       
                   </div>
             </div>
+
+
+
            <!-- فيديو4 من جوجل درايف -->
 <div class="video-card" data-category="mental-health">
     <h2>الفرق بين الطمأنينة والأمان</h2>
@@ -280,6 +291,51 @@
         }
     }
 </script>
+
+
+            
+           <!-- فيديو5 من جوجل درايف -->
+           <div class="video-card" data-category="self-development">
+            <h2>التشتت وسرعةالملل</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/preview"
+                    title="  التشتت وسرعة الملل "
+                    frameborder="0"
+                    allowfullscreen
+                    allow="autoplay">
+                </iframe>
+            </div>
+            <div class="video-actions">
+                <button class="share-btn" onclick="shareDriveVideo('https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view', ' التشتت وسرعة الملل')">
+                    <i class="fas fa-share-alt"></i> مشاركة
+                </button>
+            </div>
+        </div>
+        
+        <script>
+            function shareDriveVideo(url, title) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        url: url
+                    }).catch(console.error);
+                } else {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                }
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
             <!-- فيديوهات قادمة -->
             <div class="video-card coming-soon" data-category="mental-health">
                 <h2>استراتيجيات تحسين الحالة المزاجية</h2>
@@ -301,6 +357,42 @@
         <section class="video-comments">
             
     <style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
        
         h2 {
             color: #0056b3;
@@ -442,6 +534,32 @@
             text-align: right;
         }
     </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <h2>التعليقات</h2>
 
     <form id="comment-form">
@@ -572,6 +690,25 @@
                 submitBtn.textContent = "إرسال التعليق";
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // تحميل التعليقات والردود
         function loadComments() {
