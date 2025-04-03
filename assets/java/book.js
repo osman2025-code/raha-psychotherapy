@@ -59,7 +59,73 @@ fetchBooks();
 
 
 
+ // تبديل حالة القسم
+ function togglePanel(panelId) {
+    const panel = document.getElementById(panelId);
+    const isHidden = panel.classList.contains('hidden');
+    
+    if (isHidden) {
+        // إظهار القسم
+        panel.classList.remove('hidden');
+        document.getElementById('restoreBtn').classList.add('hidden');
+    } else {
+        // إخفاء القسم
+        panel.classList.add('hidden');
+        updateRestoreButton();
+    }
+}
 
+// تحديث زر الاستعادة
+function updateRestoreButton() {
+    const resourcesHidden = document.getElementById('resourcesPanel').classList.contains('hidden');
+    const paymentHidden = document.getElementById('paymentPanel').classList.contains('hidden');
+    const restoreBtn = document.getElementById('restoreBtn');
+    
+    if (resourcesHidden || paymentHidden) {
+        restoreBtn.classList.remove('hidden');
+        
+        // تحديد موقع الزر حسب الأقسام المخفية
+        if (resourcesHidden && paymentHidden) {
+            restoreBtn.style.bottom = '70px';
+            restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
+        } else if (resourcesHidden) {
+            restoreBtn.style.bottom = '180px';
+            restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
+        } else if (paymentHidden) {
+            restoreBtn.style.bottom = '20px';
+            restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
+        }
+    } else {
+        restoreBtn.classList.add('hidden');
+    }
+}
+
+// استعادة جميع الأقسام
+function restoreAllPanels() {
+    document.getElementById('resourcesPanel').classList.remove('hidden');
+    document.getElementById('paymentPanel').classList.remove('hidden');
+    document.getElementById('restoreBtn').classList.add('hidden');
+}
+
+// تهيئة الصفحة
+window.onload = function() {
+    // تعريف حدث زر الاستعادة
+    document.getElementById('restoreBtn').addEventListener('click', restoreAllPanels);
+    
+    // تحسينات للشاشات الصغيرة جداً
+    if (window.innerWidth < 400) {
+        const panels = document.querySelectorAll('.side-panel');
+        panels.forEach(panel => {
+            panel.style.width = '130px';
+            panel.style.padding = '6px';
+        });
+        
+        document.querySelectorAll('.resource-link').forEach(link => {
+            link.style.fontSize = '11px';
+            link.style.padding = '5px 6px';
+        });
+    }
+};
 
 
 
