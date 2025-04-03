@@ -284,6 +284,7 @@ footer{
  .side-resourses {
      bottom: 180px;
      width: 180px;
+     margin: 30px 0;
  }
  
  .side-links {
@@ -517,7 +518,7 @@ footer{
      
      .payment-btn {
          padding: 8px 10px;
-         font-size: 0.8rem;
+         font-size: 0.7rem;
      }
      
      .instapay-logo {
