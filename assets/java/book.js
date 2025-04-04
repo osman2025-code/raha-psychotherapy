@@ -59,6 +59,7 @@ async function fetchBooks() {
 
 fetchBooks();
 
+//**************************************************************************** */
 
 
 //الاعلان الجانبي في صفحة الحجز
@@ -93,7 +94,7 @@ function updateRestoreButton() {
             restoreBtn.style.bottom = '70px';
             restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
         } else if (resourcesHidden) {
-            restoreBtn.style.bottom = '180px';
+            restoreBtn.style.bottom = '200px';
             restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
         } else if (paymentHidden) {
             restoreBtn.style.bottom = '20px';
@@ -115,7 +116,15 @@ function restoreAllPanels() {
 window.onload = function() {
     // تعريف حدث زر الاستعادة
     document.getElementById('restoreBtn').addEventListener('click', restoreAllPanels);
-    
+
+    //تديل لجعل المصادر مخفية في اول الامر
+    document.getElementById('resourcesPanel').classList.add('hidden');
+    const restoreBtn = document.getElementById('restoreBtn');
+    restoreBtn.classList.remove('hidden')
+    restoreBtn.style.bottom = '200px';
+    restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
+
+
     // تحسينات للشاشات الصغيرة جداً
     if (window.innerWidth < 400) {
         const panels = document.querySelectorAll('.side-panel');
