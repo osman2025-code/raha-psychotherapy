@@ -8,59 +8,11 @@
     
                     // تغيير ارتفاع الفورم عند الانتقال إلى صفحة جديدة
                     setTimeout(() => {
-                        iframe.style.minHeight = "1200px"; // زيادة الارتفاع
+                        iframe.style.minHeight = "1300px"; // زيادة الارتفاع
                     }, 500); // التأخير قليلاً لضمان التحميل
                 };
 
             }
-
-
-// function adjustIframeHeight() {
-//     var iframe = document.getElementById("googleForm");
-
-//     // ضبط الارتفاع المبدئي ليكون 500px فقط عند تحميل الصفحة لأول مرة
-//     let firstLoad = true;
-//     iframe.style.minHeight = "500px";
-
-//     iframe.onload = function() {
-//         window.scrollTo({ top: 200, behavior: 'smooth' }); // التمرير إلى أعلى الصفحة
-        
-//         setTimeout(() => {
-//             if (!firstLoad) {
-//                 adjustHeightBasedOnScreen(); // تغيير الارتفاع فقط بعد الضغط على "التالي"
-//             }
-//             firstLoad = false;
-//         }, 500);
-//     };
-
-//     function adjustHeightBasedOnScreen() {
-//         let screenWidth = window.innerWidth;
-//         let newHeight;
-
-//         if (screenWidth > 1200) {
-//             newHeight = "1400px"; // للحواسيب الكبيرة
-//         } else if (screenWidth > 768) {
-//             newHeight = "1700px"; // للأجهزة اللوحية
-//         } else {
-//             newHeight = "1900px"; // للهواتف
-//         }
-
-//         iframe.style.minHeight = newHeight;
-//     }
-
-//     // مراقبة تغيير الصفحة داخل الـ iframe لتحديث الارتفاع عند الانتقال بين الصفحات
-//     let previousUrl = "";
-//     setInterval(() => {
-//         if (iframe.contentWindow.location.href !== previousUrl) {
-//             previousUrl = iframe.contentWindow.location.href;
-//             if (!firstLoad) {
-//                 adjustHeightBasedOnScreen();
-//             }
-//         }
-//     }, 1000);
-// }
-
-// adjustIframeHeight();
 
 
 
