@@ -94,7 +94,7 @@ function updateRestoreButton() {
             restoreBtn.style.bottom = '70px';
             restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
         } else if (resourcesHidden) {
-            restoreBtn.style.bottom = '200px';
+            restoreBtn.style.bottom = '195px';
             restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
         } else if (paymentHidden) {
             restoreBtn.style.bottom = '20px';
@@ -121,7 +121,7 @@ window.onload = function() {
     document.getElementById('resourcesPanel').classList.add('hidden');
     const restoreBtn = document.getElementById('restoreBtn');
     restoreBtn.classList.remove('hidden')
-    restoreBtn.style.bottom = '200px';
+    restoreBtn.style.bottom = '195px';
     restoreBtn.innerHTML = '<i class="fas fa-plus"></i>';
 
 
@@ -129,7 +129,7 @@ window.onload = function() {
     if (window.innerWidth < 400) {
         const panels = document.querySelectorAll('.side-panel');
         panels.forEach(panel => {
-            panel.style.width = '130px';
+            panel.style.width = '120px';
             panel.style.padding = '6px';
         });
         
