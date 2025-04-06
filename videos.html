@@ -83,8 +83,15 @@
                 "duration": "PT5M45S",
                 "embedUrl": " https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view"
             },
-
-
+            {
+                "@type": "VideoObject",
+                "name": "مغالطة عيبي اني طيب!  ",
+                "description": "نصائح سريعة للعناية بالصحة النفسية",
+                "thumbnailUrl": "https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view?usp=sharing ",
+                "uploadDate": "2025-4-3",
+                "duration": "PT5M45S",
+                "embedUrl": " https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view/view"
+            },
 
 
         ]
@@ -295,7 +302,7 @@
 
             
            <!-- فيديو5 من جوجل درايف -->
-           <div class="video-card" data-category="self-development">
+<div class="video-card" data-category="self-development">
             <h2>التشتت وسرعةالملل</h2>
             <div class="video-container">
                 <iframe 
@@ -308,6 +315,39 @@
             </div>
             <div class="video-actions">
                 <button class="share-btn" onclick="shareDriveVideo('https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view', ' التشتت وسرعة الملل')">
+                    <i class="fas fa-share-alt"></i> مشاركة
+                </button>
+            </div>
+</div>
+        
+        <script>
+            function shareDriveVideo(url, title) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        url: url
+                    }).catch(console.error);
+                } else {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                }
+            }
+        </script>
+
+
+           <!-- فيديو6 من جوجل درايف -->
+           <div class="video-card" data-category="self-development">
+            <h2>مغالطة عيبي اني طيب!</h2>
+            <div class="video-container">
+                <iframe 
+                    src=" https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/preview"title="  مغالطة عيبي اني طيب!"
+                    frameborder="0"
+                    allowfullscreen
+                    allow="autoplay">
+                </iframe>
+            </div>
+            <div class="video-actions">
+                <button class="share-btn" onclick="shareDriveVideo('https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view', '  مغالطة عيبي اني طيب! ')">
+
                     <i class="fas fa-share-alt"></i> مشاركة
                 </button>
             </div>
@@ -325,6 +365,7 @@
                 }
             }
         </script>
+
 
 
 
