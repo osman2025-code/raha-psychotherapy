@@ -1,7 +1,7 @@
 
 
  function adjustIframeHeight() {
-                var iframe = document.getElementById("googleForm");
+                var iframe = document.querySelector(".googleForm");
     
                 iframe.onload = function() {
                     window.scrollTo({ top: 200, behavior: 'smooth' }); // التمرير إلى أعلى الصفحة

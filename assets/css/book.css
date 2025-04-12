@@ -210,7 +210,7 @@ header h1{
 }
 
 
-#book_form{
+.book_form{
      width: 100%;
      max-width: 800px;
      background: white;
@@ -220,7 +220,7 @@ header h1{
      margin: auto;
 }
 
-#book_form iframe{
+.book_form iframe{
             width: 100%;
             min-height: 500px; /* تحديد ارتفاع كافٍ لعرض النموذج بالكامل */
             border: none;
@@ -247,7 +247,6 @@ header h1{
  .back-home:hover {
      background: #0056b3;
  }
-
 
 
 
@@ -401,9 +400,54 @@ footer{
      padding-bottom: 5px;
      border-bottom: 1px solid #eee;
  }
-
-
-
+/*زززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززز*/
+.therapist-card {
+     background-color: #fff;
+     border: 1px solid #ccc;
+     border-radius: 15px;
+     padding: 20px;
+     margin: 20px auto;
+     max-width: 500px;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     text-align: center;
+   }
+   
+   .therapist_img {
+     width: 150px;
+     height: 150px;
+     object-fit: cover;
+     object-position: top; /* جرّب أيضًا center أو 20% */
+     border-radius: 50%;
+     display: block;
+     margin: 0 auto 15px auto;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     background-blend-mode: screen;
+     transform: scale(1.03); /* أقل زوم */
+   }
+   
+   
+   
+   
+   .therapist-name {
+     font-size: 20px;
+     font-weight: bold;
+     color: #003366;
+   }
+   .therapist-bio {
+     margin: 10px 0;
+   }
+   .book-button {
+     background-color: #007BFF;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 10px;
+     cursor: pointer;
+     font-size: 16px;
+   }
+   .book-button:hover {
+     background-color: #0056b3;
+   }
 
 
 /*
