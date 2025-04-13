@@ -156,57 +156,91 @@
     ];
   
     let currentIndex = 0;
-    const quoteElement = document.getElementById("changing-quote");
-  
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % quotes.length;
-      quoteElement.textContent = quotes[currentIndex];
-    }, 5000); // كل 5 ثواني
+const quoteElement = document.getElementById("changing-quote");
+
+setInterval(() => {
+  quoteElement.classList.add("fade-out");
+
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % quotes.length;
+    quoteElement.textContent = quotes[currentIndex];
+    quoteElement.classList.remove("fade-out");
+  }, 1000);
+}, 5000);
   </script>
 <!-- ****************************************************************************************************؟؟  -->
-        
+
+<div class="therapists-container">
+
     <div class="therapist-card">
-        <img class="therapist_img" src="/assets/image/osman.JPG" alt=" محمد عثمان الريس">
+        <img class="therapist_img" src="/assets/image/osman.JPG" alt="محمد عثمان الريس">
         <div class="therapist-name">محمد عثمان الريس</div>
-        <div class="therapist-bio">
-          باحث وكاتب في علم النفس و مجال الصحة النفسية ويقدم جلسات فردية في الإرشاد النفسي و الأسري وعلاج الاضطرابات والصدمات النفسية، مؤلف لعدة كتب من بينها: <strong>فن الاستغناء</strong>، <strong>مفاتيح القوة</strong>، <strong>بالفطرة</strong>، <strong>نعمة المعاناة</strong>، و<strong>بداخلنا عالم مجهول</strong>،
-          والتي تم نشرها في معرض القاهرة الدولي للكتاب وفي المعارض المختلفة للدول العربية،  
-          محاضر معتمد يصمم ويقدم برامج و ورش عمل في مجالات الوعي النفسي والصحة النفسية<br>
-          من مؤسسي مركز راحة للاستشارات
+        
+        <div class="therapist-rating">
+            <span class="stars">⭐⭐⭐⭐⭐</span>
+            <span class="rating-number">(4.9)</span>
         </div>
+      
+        <div class="therapist-bio">
+          باحث وكاتب في علم النفس و مجال الصحة النفسية ويقدم جلسات فردية في علاج <strong>الصدمات </strong><strong>والاضطرابات</strong> النفسية وفي الإرشاد النفسي و الأسري...
+          <span class="more-text" style="display:none;">
+            ، مؤلف لعدة كتب من بينها: <strong>فن الاستغناء</strong>، <strong>مفاتيح القوة</strong>، <strong>بالفطرة</strong>، و<strong>نعمة المعاناة</strong>، وغيرها.
+            محاضر معتمد يصمم ويقدم برامج و ورش عمل في مجالات الوعي النفسي والصحة النفسية.
+            من مؤسسي مركز راحة للاستشارات.
+          </span>
+        </div>
+      
+        <!-- الزر هنا فوق زر الحجز -->
+        <button class="toggle-button" onclick="toggleBio(this)">عرض المزيد</button>
+      
         <button class="book-button" onclick="location.href='booking_mohamed_osman.html?therapist=محمد+عثمان+الريس'">حجز جلسة</button>
       </div>
-
-
       
+    
       <div class="therapist-card">
-        <img class="therapist_img" src="/assets/image/walaa.jpeg" alt=" ولاء محمود">
+        <img class="therapist_img" src="/assets/image/walaa.jpeg" alt="ولاء محمود">
         <div class="therapist-name">ولاء محمود</div>
-        <div class="therapist-bio">
-          أخصائية نفسية متخصصة في علاج    <strong>الصدمات النفسية</strong>   <strong>والاساءات الجنسية</strong>و تقديم مجموعات الدعم النفسي والمساندة ومحاضر  في مجال الصحة النفسية <br>
-        بكالريوس العلاج النفسي في الصدمات النفسية والاساءات الجنسية من هيئة اياتا الدولية <br>
-        خريجة مدرسة أساسيات العلاج المعرفي السلوكي <br>
-        من مؤسسي مركز راحة للاستشارات
+        <div class="therapist-rating">
+            <span class="stars">⭐⭐⭐⭐☆</span>
+            <span class="rating-number">(4.8)</span>
         </div>
+        <div class="therapist-bio">
+          أخصائية نفسية متخصصة في علاج <strong>الصدمات النفسية</strong> و<strong>الإساءات الجنسية</strong>...
+          <span class="more-text" style="display: none;">
+            وتقديم مجموعات الدعم النفسي والمساندة، ومحاضر في مجال الصحة النفسية. بكالوريوس العلاج النفسي من هيئة إياتا الدولية، خريجة مدرسة الارشاد النفسي. من مؤسسي مركز راحة للاستشارات.
+          </span>
+        </div>
+        <button class="toggle-button" onclick="toggleBio(this)">عرض المزيد</button>
         <button class="book-button" onclick="location.href='booking_walaa_mahmoud.html?therapist=ولاء+محمود'">حجز جلسة</button>
       </div>
-
+      
 
 
       <div class="therapist-card">
-        <img class="therapist_img" src="/assets/image/engy.png" alt=" إنجي درويش">
+        <img class="therapist_img" src="/assets/image/engy.png" alt="إنجي درويش">
         <div class="therapist-name">إنجي درويش</div>
-        <div class="therapist-bio">
-          أخصائية نفسية  في <strong>الإرشاد النفسي</strong> و<strong>الإرشاد الأسري</strong>، متخصصة في <strong>التربية الإيجابية</strong>.  
-          تقدم جلسات علاجية داعمة تهدف إلى تحسين العلاقات الأسرية وتعزيز الصحة النفسية للأسرة ككل،
-          خريجة مدرسة الارشاد النفسي وحاصلة على دبلومة في الارشاد النفسي والأسري والتربوي وعلى دورات في علم النفس الايجابي،<br>
-          من أوائل المعالجين في مركز راحة للاستشارات
+        <div class="therapist-rating">
+            <span class="stars">⭐⭐⭐⭐☆</span>
+            <span class="rating-number">(4.8)</span>
         </div>
+        <div class="therapist-bio">
+          أخصائية نفسية في <strong>الإرشاد النفسي</strong> و<strong>الإرشاد الأسري</strong>...
+          <span class="more-text" style="display: none;">
+            متخصصة في <strong>التربية الإيجابية</strong>، تقدم جلسات علاجية داعمة لتحسين العلاقات الأسرية وتعزيز الصحة النفسية. خريجة مدرسة الإرشاد النفسي، حاصلة على دبلومة في الإرشاد النفسي والأسري والتربوي. من أوائل المعالجين في مركز راحة للاستشارات.
+          </span>
+        </div>
+        <button class="toggle-button" onclick="toggleBio(this)">عرض المزيد</button>
         <button class="book-button" onclick="location.href='booking_engy_darwish.html?therapist=إنجي+درويش'">حجز جلسة</button>
       </div>
       
 
 
+
+      <button class="rate-button" onclick="window.open('https://forms.gle/9ye84PrieTzqN6zm9', '_blank')">
+        ⭐ قيّم تجربتك معنا
+      </button>
+
+    </div>
 
 
 

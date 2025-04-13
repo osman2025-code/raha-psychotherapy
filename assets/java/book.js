@@ -142,9 +142,44 @@ window.onload = function() {
 
 
 
+//***********************قائمة المعالجين******************************************************************** */
+
+function toggleBio(button) {
+    const bio = button.previousElementSibling;
+    const moreText = bio.querySelector(".more-text");
+
+    if (moreText.style.display === "none") {
+      moreText.style.display = "inline";
+      button.textContent = "عرض أقل";
+    } else {
+      moreText.style.display = "none";
+      button.textContent = "عرض المزيد";
+    }
+  }
 
 
+/*********************تقيممات  العميل***********************/
 
-
-
-
+  const stars = document.querySelectorAll('.star');
+  const ratingValue = document.getElementById('rating-value');
+  
+  // إضافة الحدث عند النقر على النجمة
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      const value = star.getAttribute('data-value');
+      updateRating(value);
+    });
+  });
+  
+  // تحديث التقييم بناءً على النقر
+  function updateRating(value) {
+    stars.forEach(star => {
+      if (star.getAttribute('data-value') <= value) {
+        star.classList.add('selected');
+      } else {
+        star.classList.remove('selected');
+      }
+    });
+    ratingValue.textContent = `التقييم: ${value}`;
+  }
+  

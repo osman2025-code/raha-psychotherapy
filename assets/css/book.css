@@ -401,6 +401,41 @@ footer{
      border-bottom: 1px solid #eee;
  }
 /*زززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززززز*/
+
+#changing-quote {
+     transition: opacity 1s ease-in-out;
+   }
+   .fade-out {
+     opacity: 0;
+   }
+
+.therapists-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 20px;
+   }
+
+
+   .therapist-bio {
+     text-align: justify;
+     line-height: 1.6;
+   }
+   .toggle-button {
+     background-color: #e0e0e0;
+     color: #333;
+     border: none;
+     padding: 8px 15px;
+     border-radius: 10px;
+     cursor: pointer;
+     margin: 10px auto;
+     display: block;
+     font-size: 15px;
+   }
+   .toggle-button:hover {
+     background-color: #ccc;
+   }
+
 .therapist-card {
      background-color: #fff;
      border: 1px solid #ccc;
@@ -433,9 +468,80 @@ footer{
      font-weight: bold;
      color: #003366;
    }
+
+   .therapist-rating {
+     margin: 8px 0;
+     font-size: 18px;
+     color: #FFD700; /* ذهبية */
+   }
+   
+   .therapist-rating .rating-number {
+     color: #555;
+     font-size: 14px;
+     margin-left: 6px;
+   }
+/*********************تقيممات  العميل***********************/
+   .rating {
+     font-size: 30px;
+     color: #ccc;
+     display: flex;
+     justify-content: center;
+     flex-direction: row; /* ترتيب النجوم من اليسار لليمين */
+   }
+   
+   .star {
+     cursor: pointer;
+     transition: color 0.3s;
+   }
+   
+   .star:hover {
+     color: #f1c40f;
+   }
+   
+   .star.selected {
+     color: #f1c40f;
+   }
+
+
+
+
+
+
+
+
+
+/*زر تقييمات جوجل فورم*/
+   
+  .rate-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 15px 0;
+  }
+
+  .rate-button:hover {
+    background-color: #0056b3;
+  }
+
+
+   
+   /*********************تقيممات  العميل***********************/
+
    .therapist-bio {
      margin: 10px 0;
    }
+
+   .therapist-bio  strong{
+     color: #1e3a8a; /* أزرق غامق */
+     font-weight: bold;
+   }
+
+
    .book-button {
      background-color: #007BFF;
      color: white;
