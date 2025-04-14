@@ -52,7 +52,7 @@
                 "name": "منهجية اختيار شريك الحياة",
                 "description": "فيديو تعليمي عن كيفية اختيار شريك الحياة بشكل صحيح",
                 "thumbnailUrl": "https://img.youtube.com/vi/GgBAW7cTCA4/maxresdefault.jpg",
-                "uploadDate": "2023-01-01",
+                "uploadDate": "2025-03-01",
                 "duration": "PT10M30S",
                 "embedUrl": "https://www.youtube.com/embed/GgBAW7cTCA4"
             },
@@ -61,41 +61,53 @@
                 "name": "دقيقة لنفسك",
                 "description": "نصائح عملية سريعة للعناية بالصحة النفسية",
                 "thumbnailUrl": "https://img.youtube.com/vi/im6nRferHq8/maxresdefault.jpg",
-                "uploadDate": "2023-02-15",
+                "uploadDate": "2025-03-15",
                 "duration": "PT5M45S",
                 "embedUrl": "https://www.youtube.com/embed/im6nRferHq8"
             },
             {
                 "@type": "VideoObject",
                 "name": "الفرق بين الطمأنينة والأمان",
-                "description": "نصائح عملية سريعة للعناية بالصحة النفسية",
+                "description": "شرح عملي للتمييز بين المشاعر النفسية الأساسية",
                 "thumbnailUrl": "https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view?usp=sharing",
-                "uploadDate": "2025-4-3",
+                "uploadDate": "2025-04-03",
                 "duration": "PT5M45S",
                 "embedUrl": "https://drive.google.com/file/d/1R6aSuVZaq3ctTdZVSesUOb4MABhETJfi/view"
             },
             {
                 "@type": "VideoObject",
                 "name": "التشتت وسرعة الملل",
-                "description": "نصائح عملية سريعة للعناية بالصحة النفسية",
+                "description": "نصائح لتحسين التركيز وتقليل التشتت",
                 "thumbnailUrl": "    https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view?usp=sharing  ",
-                "uploadDate": "2025-4-3",
+                "uploadDate": "2025-04-03",
                 "duration": "PT5M45S",
                 "embedUrl": " https://drive.google.com/file/d/1R3MTRl74xmw5dWeXlcXbP2NVe6Yi4vqq/view"
             },
             {
                 "@type": "VideoObject",
                 "name": "مغالطة عيبي اني طيب!  ",
-                "description": "نصائح عملية سريعة للعناية بالصحة النفسية",
+                "description": "شرح للمغالطات  الشائعة",
                 "thumbnailUrl": "https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view?usp=sharing ",
-                "uploadDate": "2025-4-3",
+                "uploadDate": "2025-04-03",
                 "duration": "PT5M45S",
-                "embedUrl": " https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view/view"
+                "embedUrl": " https://drive.google.com/file/d/1QYVmgOtzyMAdsvlLFEzptwvLk91QH3WT/view"
+            },
+            {
+                "@type": "VideoObject",
+                "name": "الفرق بين الثقة وتقدير الذات  ",
+                "description": "فروقات نفسية بين المفهومين وتأثيرهما على الشخصية",
+                "thumbnailUrl": "https://drive.google.com/file/d/1QmuPMLum1aM-9zhKcLFjZUScPPNw4xDZ/view?usp=sharing ",
+               
+                "uploadDate": "2025-04-14",
+                "duration": "PT5M45S",
+                "embedUrl": " https://drive.google.com/file/d/1QmuPMLum1aM-9zhKcLFjZUScPPNw4xDZ/view"
             },
 
 
         ]
     }
+
+
     </script>
     <!-- سياسة أمان المحتوى -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*; child-src https://www.youtube.com"></head> -->
@@ -367,6 +379,38 @@
         </script>
 
 
+
+           <!-- فيديو7 من جوجل درايف -->
+           <div class="video-card" data-category="self-development">
+            <h2> الفرق بين الثقة بالنفس وتقدير الذات </h2>
+            <div class="video-container">
+                <iframe 
+                    src=" https://drive.google.com/file/d/1QmuPMLum1aM-9zhKcLFjZUScPPNw4xDZ/preview"title="  الفرق بين الثقة بالنفس وتقدير الذات"
+                    frameborder="0"
+                    allowfullscreen
+                    allow="autoplay">
+                </iframe>
+            </div>
+            <div class="video-actions">
+                <button class="share-btn" onclick="shareDriveVideo('https://drive.google.com/file/d/1QmuPMLum1aM-9zhKcLFjZUScPPNw4xDZ/view', '     الفرق بين الثقة بالنفس وتقدير الذات ')">
+
+                    <i class="fas fa-share-alt"></i> مشاركة
+                </button>
+            </div>
+        </div>
+        
+        <script>
+            function shareDriveVideo(url, title) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        url: url
+                    }).catch(console.error);
+                } else {
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                }
+            }
+        </script>
 
 
 
