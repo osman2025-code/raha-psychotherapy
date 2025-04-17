@@ -183,3 +183,45 @@ function toggleBio(button) {
     ratingValue.textContent = `التقييم: ${value}`;
   }
   
+
+  //قسم الاسئلة الشائعة*******************************
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // تفعيل التبويبات
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        // إزالة النشط من جميع الأزرار والتبويبات
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // إضافة النشط للزر والتبويب المحدد
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+    
+    // تفعيل الأسئلة الشائعة
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        
+        // إغلاق جميع الأسئلة الأخرى في نفس التبويب
+        const currentTab = faqItem.closest('.tab-pane');
+        currentTab.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== faqItem) {
+            item.classList.remove('active');
+          }
+        });
+        
+        // تبديل السؤال الحالي
+        faqItem.classList.toggle('active');
+      });
+    });
+  });
