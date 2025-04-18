@@ -98,6 +98,18 @@ body {
   border-radius: 2px;
 }
 
+
+.workspace-types {
+  padding: 60px 0;
+}
+
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
 .workspace-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -541,3 +553,31 @@ footer {
       display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .types-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .type-card {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .types-grid {
+    padding: 0 10px;
+  }
+  
+  .type-card {
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
