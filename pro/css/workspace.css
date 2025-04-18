@@ -205,22 +205,72 @@
     color: var(--primary);
     margin-bottom: 30px;
   }
+
+
+
   
-  /* التجاوب */
-  @media (max-width: 768px) {
-    .workspace-header {
-      padding: 80px 20px;
-    }
-    
-    .workspace-header h1 {
-      font-size: 2rem;
-    }
-    
-    .type-card {
-      padding: 20px;
-    }
-    
-    .booking-form {
-      padding: 20px;
-    }
+  
+/* التجاوب */
+@media (max-width: 768px) {
+  .workspace-header {
+    padding: 80px 20px;
   }
+
+  .workspace-header h1 {
+    font-size: 2rem;
+  }
+
+  .type-card {
+    padding: 20px;
+  }
+
+  .workspace-grid {
+    gap: 30px; /* تقليص التباعد بين الأعمدة */
+  }
+
+  .feature-card {
+    padding: 25px;
+  }
+
+  .gallery-grid {
+    gap: 15px;
+  }
+
+  .gallery-item {
+    height: 200px; /* تقليل ارتفاع الصور في معرض الصور */
+  }
+
+  .gallery-item img {
+    object-position: center;
+  }
+
+  .booking-form {
+    padding: 20px;
+  }
+
+  .type-card ul {
+    text-align: left; /* تعديل اتجاه النصوص في القوائم */
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-header {
+    padding: 60px 15px;
+  }
+
+  .workspace-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .workspace-card {
+    padding: 15px;
+  }
+
+  .booking-form {
+    padding: 15px;
+  }
+
+  .price span {
+    font-size: 1.3rem;
+  }
+}
