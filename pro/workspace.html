@@ -68,7 +68,7 @@
             <li>خدمات إدارية متكاملة</li>
           </ul>
           <div class="price">تبدأ من <span>2000</span> جنيه/شهر</div>
-          <a href="/pro/contact.html" class="cta-button outline">اطلب عرضاً</a>
+          <a href="#booking" class="cta-button outline">احجز الآن</a>
         </div>
 
         <!-- مساحة مشتركة -->
@@ -84,7 +84,7 @@
             <li>خدمات مكتبية أساسية</li>
           </ul>
           <div class="price">تبدأ من <span>800</span> جنيه/شهر</div>
-          <a href="/pro/contact.html" class="cta-button outline">اطلب عرضاً</a>
+          <a href="#booking" class="cta-button outline">احجز الآن</a>
         </div>
 
         <!-- قاعات اجتماعات -->
@@ -100,7 +100,7 @@
             <li>خدمات استقبال وضيافة</li>
           </ul>
           <div class="price">تبدأ من <span>150</span> جنيه/ساعة</div>
-          <a href="/pro/contact.html" class="cta-button outline">اطلب عرضاً</a>
+          <a href="#booking" class="cta-button outline">احجز الآن</a>
         </div>
 
         <!-- مكاتب افتراضية -->
@@ -108,15 +108,15 @@
           <div class="type-icon">
             <i class="fas fa-laptop-house"></i>
           </div>
-          <h3>مساحة فاعليات </h3>
+          <h3>مساحة فاعليات</h3>
           <ul>
             <li>مساحة خارجية لتنظيم فاعاليات</li>
-            <li>  استقبال للأفراد وتنظيم الفاعلية</li>
+            <li>استقبال للأفراد وتنظيم الفاعلية</li>
             <li>حجز مرن للمساحات عند الحاجة</li>
-            <li> حل مثالي للشركات الناشئة وللأفراد</li>
+            <li>حل مثالي للشركات الناشئة وللأفراد</li>
           </ul>
           <div class="price">تبدأ من <span>500</span> جنيه/شهر</div>
-          <a href="/pro/contact.html" class="cta-button outline">اطلب عرضاً</a>
+          <a href="#booking" class="cta-button outline">احجز الآن</a>
         </div>
       </div>
     </div>
@@ -208,90 +208,55 @@
       </div>
     </div>
   </section>
-<!-- نموذج الحجز -->
-<section class="booking-section" id="booking">
-  <div class="container">
-      <div class="booking-form">
-          <h2>احجز مساحتك الآن</h2>
-          <form id="bookingForm">
-              <div class="form-group">
-                  <label for="name">الاسم الكامل</label>
-                  <input type="text" id="name" class="form-control" required>
-              </div>
-              
-              <div class="form-group">
-                  <label for="email">البريد الإلكتروني</label>
-                  <input type="email" id="email" class="form-control" required>
-              </div>
-              
-              <div class="form-group">
-                  <label for="phone">رقم الهاتف</label>
-                  <input type="tel" id="phone" class="form-control" required>
-              </div>
-              
-              <div class="form-group">
-                  <label for="space-type">نوع المساحة</label>
-                  <select id="space-type" class="form-control" required>
-                      <option value="">اختر نوع المساحة</option>
-                      <option value="shared">مساحة مشتركة</option>
-                      <option value="private">مكتب خاص</option>
-                      <option value="meeting">قاعة اجتماعات</option>
-                      <option value="virtual">مساحة لفاعلية</option>
-                  </select>
-              </div>
-              
-              <div class="form-group">
-                  <label for="date">تاريخ الحجز</label>
-                  <input type="date" id="date" class="form-control" required>
-              </div>
-              
-              <div class="form-group">
-                  <label for="message">ملاحظات إضافية</label>
-                  <textarea id="message" class="form-control"></textarea>
-              </div>
-              
-              <button type="submit" class="btn" style="width: 100%;">إرسال الطلب</button>
-          </form>
-      </div>
-  </div>
-</section>
 
-<script>
-  document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // جمع بيانات النموذج
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const spaceType = document.getElementById('space-type').value;
-      const date = document.getElementById('date').value;
-      const message = document.getElementById('message').value;
-      
-      // نص الرسالة لواتساب
-      const whatsappMessage = 
-          `طلب حجز جديد%0A%0A
-          الاسم: ${name}%0A
-          البريد الإلكتروني: ${email}%0A
-          رقم الهاتف: ${phone}%0A
-          نوع المساحة: ${spaceType}%0A
-          تاريخ الحجز: ${date}%0A
-          ملاحظات: ${message || 'لا توجد ملاحظات'}`;
-      
-      // رقم الهاتف الذي سيتم إرسال الرسالة إليه (استبدله برقمك)
-      const whatsappNumber = "201507578139"; // مثال: رقم سعودي
-      
-      // إنشاء رابط واتساب
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-      
-      // فتح واتساب في نافذة جديدة
-      window.open(whatsappUrl, '_blank');
-      
-      // إظهار رسالة تأكيد للمستخدم
-      alert('سيتم توجيهك إلى واتساب لإكمال عملية الحجز');
-  });
-</script>
-  
+  <!-- نموذج الحجز -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-form">
+        <h2>احجز مساحتك الآن</h2>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="name">الاسم الكامل</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="space-type">نوع المساحة</label>
+            <select id="space-type" class="form-control" required>
+              <option value="">اختر نوع المساحة</option>
+              <option value="المكاتب الخاصة">المكاتب الخاصة</option>
+              <option value="المساحات المشتركة">المساحات المشتركة</option>
+              <option value="قاعات اجتماعات">قاعات اجتماعات</option>
+              <option value="مساحة فاعليات">مساحة فاعليات</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="date">تاريخ الحجز</label>
+            <input type="date" id="date" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">ملاحظات إضافية</label>
+            <textarea id="message" class="form-control"></textarea>
+          </div>
+          
+          <button type="submit" class="cta-button" style="width: 100%;">إرسال الطلب عبر واتساب</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- الفوتر المشترك -->
   <footer class="main-footer">
     <div class="container">
@@ -304,7 +269,6 @@
           <ul>
             <li><a href="/pro/index.html">الرئيسية</a></li>
             <li><a href="/pro/about.html">عن الشركة</a></li>
-            <!-- <li><a href="portfolio.html">معرض الأعمال</a></li> -->
             <li><a href="/pro/contact.html">اتصل بنا</a></li>
           </ul>
         </div>
@@ -324,10 +288,40 @@
     </div>
   </footer>
 
-
-
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // جمع بيانات النموذج
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const spaceType = document.getElementById('space-type').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value;
+      
+      // نص الرسالة لواتساب
+      const whatsappMessage = 
+          `طلب حجز جديد في Raha Pro%0A%0A
+          🏢 *نوع المساحة:* ${spaceType}%0A
+          👤 *الاسم:* ${name}%0A
+          📧 *البريد الإلكتروني:* ${email}%0A
+          📞 *رقم الهاتف:* ${phone}%0A
+          📅 *تاريخ الحجز:* ${date}%0A
+          📝 *ملاحظات:* ${message || 'لا توجد ملاحظات'}%0A%0A
+          شكراً لاختياركم Raha Pro`;
+      
+      // رقم الهاتف الذي سيتم إرسال الرسالة إليه
+      const whatsappNumber = "201507578139";
+      
+      // إنشاء رابط واتساب
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      
+      // فتح واتساب في نافذة جديدة
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
 
   <script src="/pro/js/workspace.js"></script>
-
 </body>
 </html>
