@@ -5,7 +5,6 @@
   <title>تأجير مكاتب إدارية | Raha Pro</title>
   <link rel="stylesheet" href="/pro/css/rahapro.css">
   <link rel="stylesheet" href="/pro/css/workspace.css">
-  <link rel="stylesheet" href="/pro/css/others.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -209,8 +208,89 @@
       </div>
     </div>
   </section>
+<!-- نموذج الحجز -->
+<section class="booking-section" id="booking">
+  <div class="container">
+      <div class="booking-form">
+          <h2>احجز مساحتك الآن</h2>
+          <form id="bookingForm">
+              <div class="form-group">
+                  <label for="name">الاسم الكامل</label>
+                  <input type="text" id="name" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="email">البريد الإلكتروني</label>
+                  <input type="email" id="email" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="phone">رقم الهاتف</label>
+                  <input type="tel" id="phone" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="space-type">نوع المساحة</label>
+                  <select id="space-type" class="form-control" required>
+                      <option value="">اختر نوع المساحة</option>
+                      <option value="shared">مساحة مشتركة</option>
+                      <option value="private">مكتب خاص</option>
+                      <option value="meeting">قاعة اجتماعات</option>
+                      <option value="virtual">مساحة لفاعلية</option>
+                  </select>
+              </div>
+              
+              <div class="form-group">
+                  <label for="date">تاريخ الحجز</label>
+                  <input type="date" id="date" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="message">ملاحظات إضافية</label>
+                  <textarea id="message" class="form-control"></textarea>
+              </div>
+              
+              <button type="submit" class="btn" style="width: 100%;">إرسال الطلب</button>
+          </form>
+      </div>
+  </div>
+</section>
 
-
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // جمع بيانات النموذج
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const spaceType = document.getElementById('space-type').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value;
+      
+      // نص الرسالة لواتساب
+      const whatsappMessage = 
+          `طلب حجز جديد%0A%0A
+          الاسم: ${name}%0A
+          البريد الإلكتروني: ${email}%0A
+          رقم الهاتف: ${phone}%0A
+          نوع المساحة: ${spaceType}%0A
+          تاريخ الحجز: ${date}%0A
+          ملاحظات: ${message || 'لا توجد ملاحظات'}`;
+      
+      // رقم الهاتف الذي سيتم إرسال الرسالة إليه (استبدله برقمك)
+      const whatsappNumber = "201507578139"; // مثال: رقم سعودي
+      
+      // إنشاء رابط واتساب
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      
+      // فتح واتساب في نافذة جديدة
+      window.open(whatsappUrl, '_blank');
+      
+      // إظهار رسالة تأكيد للمستخدم
+      alert('سيتم توجيهك إلى واتساب لإكمال عملية الحجز');
+  });
+</script>
   
   <!-- الفوتر المشترك -->
   <footer class="main-footer">
