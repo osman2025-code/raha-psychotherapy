@@ -208,7 +208,7 @@
 
 
 
-  
+
   
 /* التجاوب */
 @media (max-width: 768px) {
@@ -274,3 +274,56 @@
     font-size: 1.3rem;
   }
 }
+
+
+
+  /* التجاوب */
+  @media (max-width: 992px) {
+    .service-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-image {
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main-nav .container {
+      flex-direction: column;
+    }
+    
+    .nav-links {
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .cta-button {
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+    
+    .service-header h1 {
+      font-size: 2rem;
+    }
+    
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
