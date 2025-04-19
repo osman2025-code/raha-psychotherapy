@@ -1,30 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // تأثير التمرير السلس للروابط
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
   
-    // تفعيل معرض الصور (إذا أردت إضافة lightbox)
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        // يمكنك إضافة lightbox هنا
-        console.log('فتح صورة مكبرة');
-      });
-    });
+  // جمع بيانات النموذج
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const spaceType = document.getElementById('space-type').value;
+  const date = document.getElementById('date').value;
+  const message = document.getElementById('message').value;
   
-    // إرسال نموذج الحجز
-    const bookingForm = document.querySelector('.booking-form form');
-    if (bookingForm) {
-      bookingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('تم استلام طلبك، سنتواصل معك خلال 24 ساعة');
-        this.reset();
-      });
-    }
-  });
+  // نص الرسالة لواتساب
+  const whatsappMessage = 
+      `طلب حجز جديد في Raha Pro%0A%0A
+      🏢 *نوع المساحة:* ${spaceType}%0A
+      👤 *الاسم:* ${name}%0A
+      📧 *البريد الإلكتروني:* ${email}%0A
+      📞 *رقم الهاتف:* ${phone}%0A
+      📅 *تاريخ الحجز:* ${date}%0A
+      📝 *ملاحظات:* ${message || 'لا توجد ملاحظات'}%0A%0A
+      شكراً لاختياركم Raha Pro`;
+  
+  // رقم الهاتف الذي سيتم إرسال الرسالة إليه
+  const whatsappNumber = "201507578139";
+  
+  // إنشاء رابط واتساب
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  
+  // فتح واتساب في نافذة جديدة
+  window.open(whatsappUrl, '_blank');
+});
+
+
+
